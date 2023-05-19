@@ -1,9 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const Web3 = require('web3');
 const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+app.use(cors());
+
 
 const privateKey = fs.readFileSync('.secret').toString().trim();
 const ABIContract = require('./abicontract.json');
